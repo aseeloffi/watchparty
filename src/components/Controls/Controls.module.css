@@ -1,0 +1,114 @@
+.controlsContainer {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+}
+
+.controls {
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  line-height: 14px;
+  padding: 6px 10px;
+  gap: 8px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.75));
+}
+
+@media only screen and (max-width: 600px) {
+  .controls {
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 4px 6px;
+  }
+  /* إخفاء أزرار ثانوية على الجوال */
+  .controls > :global(.mantine-Badge-root),
+  .controls > :global(.mantine-Menu-root:last-of-type) {
+    display: none;
+  }
+}
+
+.text {
+  font-weight: 700;
+  font-size: 0.8em;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.action {
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: opacity 0.15s, transform 0.1s;
+}
+
+.action:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+/* ── Progress bar ── */
+.progressBar {
+  flex-grow: 1;
+  position: relative;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  min-width: 60px;
+}
+
+/* track background */
+.progressBar::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 2px;
+}
+
+.buffered {
+  position: absolute;
+  height: 4px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.played {
+  position: absolute;
+  height: 4px;
+  background: #1c7ed6;
+  border-radius: 2px;
+  pointer-events: none;
+  left: 0;
+}
+
+.thumb {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.5);
+  transition: transform 0.1s;
+}
+
+.progressBar:hover .thumb {
+  transform: translateY(-50%) scale(1.3);
+}
+
+.progressBar:hover .played {
+  background: #339af0;
+}
+
+.hoverBadge {
+  position: absolute;
+  bottom: 16px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  white-space: nowrap;
+}
