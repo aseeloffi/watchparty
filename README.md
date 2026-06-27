@@ -82,3 +82,4 @@ This project supports creating virtual browsers (using https://github.com/m1k1o/
 - Redis
 - PostgreSQL
 - Docker
+# watchparty
